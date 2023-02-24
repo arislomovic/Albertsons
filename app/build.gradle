@@ -1,0 +1,101 @@
+plugins {
+    id 'com.android.application'
+    id 'kotlin-android'
+    id 'kotlin-kapt'
+    id 'kotlin-parcelize'
+}
+
+android {
+    compileSdk 31
+    compileSdkVersion 33
+    buildToolsVersion '32.1.0-rc1'
+    buildFeatures {
+        viewBinding true
+        dataBinding true
+    }
+    defaultConfig {
+        applicationId "com.myprojects.interview"
+        minSdk 21
+        targetSdkVersion 33
+        versionCode 1
+        versionName "1.0"
+        multiDexEnabled true
+    }
+    packagingOptions {
+        jniLibs {
+            excludes += ['META-INF/*']
+        }
+        resources {
+            excludes += ['META-INF/*']
+        }
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    testOptions {
+        unitTests.returnDefaultValues = true
+    }
+    namespace 'com.myprojects.interview'
+}
+
+ext {
+    androidXJunit_version = '1.1.5'
+    androidXTesting_version = '2.2.0'
+    appcompat_version = '1.6.1'
+    assertJCore_version = '3.24.2'
+    constraintLayout_version = '2.1.4'
+    coroutine_version = '1.6.4'
+    junit_version = "4.13.2"
+    koin_version = '3.3.3'
+    ktx_version = "1.9.0"
+    lifecycle_version = "2.5.1"
+    material_version = '1.8.0'
+    mockk_version = '1.13.4'
+    moshi_version = '1.14.0'
+    multidex_version = "2.0.1"
+    retrofit_version = "2.9.0"
+    navigation_version = "2.5.3"
+}
+
+
+dependencies {
+    implementation "androidx.multidex:multidex:$multidex_version"
+    implementation "androidx.appcompat:appcompat:$appcompat_version"
+    implementation "androidx.navigation:navigation-fragment-ktx:$navigation_version"
+    implementation "androidx.navigation:navigation-ui-ktx:$navigation_version"
+    testImplementation "androidx.test.ext:junit:$androidXJunit_version"
+    testImplementation "org.assertj:assertj-core:$assertJCore_version"
+    testImplementation "junit:junit:$junit_version"
+    testImplementation "androidx.arch.core:core-testing:$androidXTesting_version"
+
+    testImplementation "io.mockk:mockk:$mockk_version"
+    testImplementation "io.mockk:mockk-android:$mockk_version"
+
+    implementation "androidx.constraintlayout:constraintlayout:$constraintLayout_version"
+
+    implementation "com.squareup.moshi:moshi:$moshi_version"
+    kapt "com.squareup.moshi:moshi-kotlin-codegen:$moshi_version"
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version"
+
+    implementation "com.squareup.retrofit2:converter-moshi:$retrofit_version"
+    implementation "com.squareup.retrofit2:retrofit:$retrofit_version"
+
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutine_version"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutine_version"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:$coroutine_version"
+
+    implementation "com.google.android.material:material:$material_version"
+    implementation "androidx.core:core-ktx:$ktx_version"
+
+
+    // Koin main features for Android
+    implementation "io.insert-koin:koin-android:$koin_version"
+    implementation "io.insert-koin:koin-android-compat:$koin_version"
+}

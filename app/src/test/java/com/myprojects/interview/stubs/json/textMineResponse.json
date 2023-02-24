@@ -1,0 +1,22 @@
+[
+  {
+    "sf": "HMM",
+    "lfs": [
+      {
+        "lf": "heavy meromyosin",
+        "freq": 267,
+        "since": 1971
+      },
+      {
+        "lf": "hidden Markov model",
+        "freq": 245,
+        "since": 1990
+      },
+      {
+        "lf": "hexamethylmelamine",
+        "freq": 55,
+        "since": 1976
+      }
+    ]
+  }
+]
